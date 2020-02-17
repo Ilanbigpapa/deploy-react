@@ -92,7 +92,7 @@ class App extends Component {
     let grid = [];
     for (let i = 0; i < rows; i++) {
       grid[i] = Array.from({ length: columns }, () =>
-        Math.round(Math.random())
+        Math.round(Math.random() * 0.7)
       );
     }
 
@@ -108,6 +108,22 @@ class App extends Component {
   render() {
     return (
       <div>
+        {this.state.phase === 1 && (
+          <button className="btn btn-primary m-2" onClick={this.handleSolve}>
+            Solve
+          </button>
+        )}
+        {this.state.phase === 2 && (
+          <div>
+            <button
+              className="btn btn-primary m-2"
+              onClick={this.handleRestart}
+            >
+              Restart
+            </button>
+            <p> number off islands: {this.state.islands} </p>
+          </div>
+        )}
         {this.state.phase === 0 && (
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
@@ -136,22 +152,6 @@ class App extends Component {
             columns={this.state.columns}
             grid={this.state.grid}
           />
-        )}
-        {this.state.phase === 1 && (
-          <button className="btn btn-primary m-2" onClick={this.handleSolve}>
-            Solve
-          </button>
-        )}
-        {this.state.phase === 2 && (
-          <div>
-            <button
-              className="btn btn-primary m-2"
-              onClick={this.handleRestart}
-            >
-              Restart
-            </button>
-            <p> number off islands: {this.state.islands} </p>
-          </div>
         )}
       </div>
     );

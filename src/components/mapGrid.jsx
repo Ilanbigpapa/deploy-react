@@ -26,9 +26,13 @@ class MapGrid extends Component {
       "Aqua",
       "Aquamarine",
       "Blue",
-      "Brown",
       "CadetBlue",
-      "DarkCyan"
+      "Crimson",
+      "DarkCyan",
+      "DarkMagenta",
+      "Gainsboro",
+      "GreenYellow",
+      "HotPink"
     ];
     let color = "white";
     if (value === 1) {
